@@ -1,12 +1,25 @@
+import 'package:azubi_go/screens/collections_screen.dart';
+import 'package:azubi_go/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
-class MainNavigationRail extends StatelessWidget {
+class MainNavigationRail extends StatefulWidget {
+  @override
+  _MainNavigationRailState createState() => _MainNavigationRailState();
+}
+
+class _MainNavigationRailState extends State<MainNavigationRail> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
         elevation: 3,
-        selectedIndex: 3,
-        onDestinationSelected: null,
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+          MainScreen.selectedIndex.value = index;
+        },
         labelType: NavigationRailLabelType.none,
         destinations: [
           NavigationRailDestination(
