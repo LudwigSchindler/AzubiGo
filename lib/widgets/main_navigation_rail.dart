@@ -4,33 +4,18 @@ import 'package:azubi_go/screens/home_screen.dart';
 import 'package:azubi_go/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
-class MainNavigationRail extends StatefulWidget {
-  @override
-  _MainNavigationRailState createState() => _MainNavigationRailState();
-}
-
-class _MainNavigationRailState extends State<MainNavigationRail> {
-  final screens = [
-    HomeScreen(),
-    Text("Kommunikation"),
-    EducationScreen(),
-    CollectionsScreen(),
-  ];
-
-  int _selectedIndex = 0;
+class MainNavigationRail extends StatelessWidget {
+  static ValueNotifier<int> destinationIndex = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
         elevation: 3,
-        selectedIndex: _selectedIndex,
+        selectedIndex: destinationIndex.value,
         onDestinationSelected: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-          // Navigator.of(context).pushReplacementNamed("home");
-          // Navigator.of(context).pop();
-          MainScreen.screenWidget.value = screens[index];
+          destinationIndex.value = index;
+
+          MainScreen.screenIndex.value = index;
         },
         labelType: NavigationRailLabelType.none,
         destinations: [

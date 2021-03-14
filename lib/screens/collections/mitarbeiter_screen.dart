@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 class MitarbeiterScreen extends StatelessWidget {
 
-  static const routeName = "collections/mitarbeiter";
-
   final images = [
     AzubiCard.image(Text("Test Titel"), "https://picsum.photos/1000", null, null),
     AzubiCard.image(Text("Test Titel"), "https://picsum.photos/1001", null, null),
