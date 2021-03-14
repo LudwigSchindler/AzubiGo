@@ -4,9 +4,12 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: true,
       title: Text("Azubi®Go"),
       backgroundColor: Colors.deepPurple,
       actions: [
+        Chip(label: Text("10:33 Statusmeeting QS"), elevation: 5, ),
+        IconButton(icon: Icon(Icons.public_rounded), tooltip: "Storymodus (Pre-Alpha)", onPressed: () { },),
         PopupMenuButton(
           itemBuilder: (context) {
             List<PopupMenuEntry<Object>> list = [
@@ -24,7 +27,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   leading: Icon(
                     Icons.shield,
                   ),
-                  title: Text("Unschuldig"),
+                  title: Text("PANIC!!!"),
                 ),
               ),
               PopupMenuItem(

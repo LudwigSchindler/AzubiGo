@@ -7,22 +7,20 @@ class OverviewGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        itemCount: tree.length,
-        itemBuilder: (BuildContext context, int index) {
-          return tree[index];
-        },
-        padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.longestSide / 8,
-            vertical: MediaQuery.of(context).size.shortestSide / 5),
-        primary: false,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent:
-                MediaQuery.of(context).size.longestSide / gridDelegate,
-            crossAxisSpacing: MediaQuery.of(context).size.longestSide / space,
-            mainAxisSpacing: MediaQuery.of(context).size.longestSide / space),
-      ),
+    return GridView.builder(
+      itemCount: tree.length,
+      itemBuilder: (BuildContext context, int index) {
+        return tree[index];
+      },
+      // padding: EdgeInsets.symmetric(
+      //     horizontal: MediaQuery.of(context).size.longestSide / 8,
+      //     vertical: MediaQuery.of(context).size.shortestSide / 5),
+      primary: false,
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent:
+              MediaQuery.of(context).size.longestSide / gridDelegate,
+          crossAxisSpacing: MediaQuery.of(context).size.longestSide / space,
+          mainAxisSpacing: MediaQuery.of(context).size.longestSide / space),
     );
   }
 

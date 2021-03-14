@@ -1,3 +1,3 @@
-class StorageService{
+class StorageService {
 
 }

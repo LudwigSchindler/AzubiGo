@@ -1,22 +1,18 @@
-import 'package:azubi_go/screens/collections_screen.dart';
 import 'package:azubi_go/screens/home_screen.dart';
-import 'package:azubi_go/screens/locations_screen.dart';
 import 'package:azubi_go/widgets/main_app_bar.dart';
 import 'package:azubi_go/widgets/main_navigation_rail.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
+  static ValueNotifier<Widget> screenWidget = ValueNotifier(HomeScreen());
 
-  static ValueNotifier<int> selectedIndex = ValueNotifier(0);
 
-  final screens = [
-    HomeScreen(),
-    Text("Kommunikation"),
-    Text("Ausbildung"),
-    CollectionsScreen(),
-    Text("Challenges"),
-    LocationsScreen(),
-  ];
+  MainScreen.route(Widget screen){
+    screenWidget.value = screen;
+  }
+
+
+  MainScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +20,20 @@ class MainScreen extends StatelessWidget {
       body: Row(
         children: [
           MainNavigationRail(),
-          ValueListenableBuilder(valueListenable: selectedIndex, builder: (BuildContext context, int index, Widget child){
-            return screens[index];
-          }),
+          Expanded(
+            child: Container(
+              alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.longestSide / 8,
+                  right: MediaQuery.of(context).size.longestSide / 8,
+                  top: MediaQuery.of(context).size.shortestSide / 5),
+              child: ValueListenableBuilder(
+                  valueListenable: screenWidget,
+                  builder: (BuildContext context, Widget screen, Widget child) {
+                    return screen;
+                  }),
+            ),
+          ),
         ],
       ),
       appBar: MainAppBar(),

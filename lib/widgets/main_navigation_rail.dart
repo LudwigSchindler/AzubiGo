@@ -1,4 +1,6 @@
 import 'package:azubi_go/screens/collections_screen.dart';
+import 'package:azubi_go/screens/education_screen.dart';
+import 'package:azubi_go/screens/home_screen.dart';
 import 'package:azubi_go/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +10,15 @@ class MainNavigationRail extends StatefulWidget {
 }
 
 class _MainNavigationRailState extends State<MainNavigationRail> {
+  final screens = [
+    HomeScreen(),
+    Text("Kommunikation"),
+    EducationScreen(),
+    CollectionsScreen(),
+  ];
+
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
@@ -18,7 +28,9 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
           setState(() {
             _selectedIndex = index;
           });
-          MainScreen.selectedIndex.value = index;
+          // Navigator.of(context).pushReplacementNamed("home");
+          // Navigator.of(context).pop();
+          MainScreen.screenWidget.value = screens[index];
         },
         labelType: NavigationRailLabelType.none,
         destinations: [
@@ -37,14 +49,6 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
           NavigationRailDestination(
             icon: Icon(Icons.collections_rounded),
             label: Text('Sammlungen'),
-          ),
-          NavigationRailDestination(
-            icon: Icon(Icons.flag_rounded),
-            label: Text('Challenges'),
-          ),
-          NavigationRailDestination(
-            icon: Icon(Icons.room_rounded),
-            label: Text('Orte'),
           ),
         ]);
   }
