@@ -1,9 +1,5 @@
 // Import the firebase_core plugin
-import 'package:azubi_go/screens/collections_screen.dart';
-import 'package:azubi_go/screens/home_screen.dart';
 import 'package:azubi_go/screens/main_screen.dart';
-import 'package:azubi_go/screens/mitarbeiter_screen.dart';
-import 'package:azubi_go/screens/tools_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -50,10 +46,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MainScreen(),
-      routes: {
-        "home": (context) => MainScreen(),
-        MitarbeiterScreen.routeName: (context) => MainScreen.route(MitarbeiterScreen()),
-      }
     );
   }
 }
