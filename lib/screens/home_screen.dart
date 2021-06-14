@@ -1,5 +1,5 @@
 import 'package:azubi_go/screens/main_screen.dart';
-import 'package:azubi_go/service/storage.dart';
+import 'package:azubi_go/service/storage_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -58,6 +58,11 @@ class CollectionsScreen extends StatelessWidget {
           Icon(Icons.room_rounded, size: 128),
           null,
           null),
+      AzubiCard(
+          Text("Shop", style: TextStyle(color: Colors.white, fontSize: 20)),
+          Icon(Icons.shopping_bag_rounded, size: 128),
+          null,
+          null),
     ];
   }
 

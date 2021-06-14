@@ -1,16 +1,19 @@
 // Import the firebase_core plugin
-import 'package:azubi_go/screens/main_screen.dart';
+import 'package:azubi_go/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(App());
+
+  runApp(AzubiGo());
 }
 
-class App extends StatelessWidget {
+class AzubiGo extends StatelessWidget {
   // Create the initialization Future outside of `build`:
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+  static const DEBUG = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: LoginScreen(),
     );
   }
 }
